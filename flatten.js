@@ -5,10 +5,10 @@ console.log(flatter(arr))
 function flatter(arr) {
     let newArr = []
     for( let i=0; i<arr.length; i++) {
-        if(typeof(arr[i])==="number" || typeof(arr[i])==="string") {
-            newArr.push(arr[i])
-        } else {
+        if(Array.isArray(arr[i])) {
             newArr = newArr.concat(flatter(arr[i]))
+        } else {
+            newArr.push(arr[i])
         }
     }
     return newArr
